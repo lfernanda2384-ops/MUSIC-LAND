@@ -9,6 +9,42 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Syne:wght@500;600;700;800&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
+  <style>
+    /* Botón flotante para el chat */
+    .chat-float-btn {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      z-index: 1000;
+      background: linear-gradient(135deg, #3dff9a, #7c5cff);
+      border: none;
+      border-radius: 60px;
+      padding: 14px 24px;
+      font-family: 'DM Sans', sans-serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: #07080d;
+      cursor: pointer;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.3), 0 0 0 1px rgba(61,255,154,0.3);
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      backdrop-filter: blur(4px);
+    }
+    .chat-float-btn:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 16px 32px rgba(0,0,0,0.4), 0 0 0 2px rgba(61,255,154,0.6);
+    }
+    @media (max-width: 600px) {
+      .chat-float-btn {
+        padding: 10px 18px;
+        font-size: 0.85rem;
+        bottom: 20px;
+        right: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
   <a class="skip-link" href="#inicio">Saltar al contenido</a>
@@ -27,16 +63,16 @@
         <span class="visually-hidden">Abrir menú</span>
       </button>
 
-      <nav class="nav">
-
       <nav class="nav" id="nav-primary" aria-label="Navegación principal">
         <ul class="nav-list">
-          <li><a class="nav-link nav-link--active" href="index.html.html" data-nav>Inicio</a></li>
+          <li><a class="nav-link nav-link--active" href="index.html" data-nav>Inicio</a></li>
           <li><a class="nav-link" href="sobrenosotros.html" data-nav>Sobre nosotros</a></li>
           <li><a class="nav-link" href="servicios.html" data-nav>Servicios</a></li>
           <li><a class="nav-link" href="procesodereparacion.html" data-nav>Proceso de reparación</a></li>
           <li><a class="nav-link" href="testimonios.html" data-nav>Testimonios</a></li>
           <li><a class="nav-link" href="contacto.html" data-nav>Contactos</a></li>
+          <!-- NUEVO: Enlace directo al chatbot -->
+          <li><a class="nav-link" href="index (1).html" target="_blank" data-nav>🤖 Soporte IA</a></li>
         </ul>
       </nav>
     </div>
@@ -67,7 +103,7 @@
           </p>
           <div class="hero-actions">
             <a class="btn btn--primary" href="servicios.html">Explorar servicios</a>
-            <a class="btn btn--ghost" href="#contactos">Agendar revisión</a>
+            <a class="btn btn--ghost" href="contacto.html">Agendar revisión</a>
           </div>
           <dl class="hero-stats">
             <div class="hero-stat">
@@ -188,15 +224,9 @@
     </section>
   </main>
 
-  <!-- Música de ambiente: el navegador requiere que el usuario pulse play (política de autoplay) -->
+  <!-- Música de ambiente (existente) -->
   <div class="music-dock" id="music-dock">
-    <audio
-      id="bg-audio"
-      preload="metadata"
-      loop
-      playsinline
-    >
-      <!-- Pista electronica/ambient (Mixkit — uso gratuito). Sustituye por tu propio MP3 en /assets/audio/ si prefieres -->
+    <audio id="bg-audio" preload="metadata" loop playsinline>
       <source src="https://assets.mixkit.co/music/522/522.mp3" type="audio/mpeg" />
     </audio>
     <div class="music-dock__panel">
@@ -243,22 +273,29 @@
     </p>
   </div>
 
+  <!-- BOTÓN FLOTANTE PARA ABRIR EL CHATBOT -->
+  <button class="chat-float-btn" id="openChatBtn">
+    💬 Soporte técnico
+    <span style="font-size:1.2rem;">🤖</span>
+  </button>
+
   <footer class="site-footer" id="pie">
     <div class="footer-inner">
       <div class="footer-brand">
         <a class="footer-logo" href="index.html#inicio">MUSIC<span>LAND</span></a>
         <p class="footer-tagline">Mantenimiento y reparación de instrumentos electrónicos.</p>
       </div>
-           <nav class="nav" id="nav-primary" aria-label="Navegación principal">
-        <ul class="nav-list">
-          <li><a class="nav-link nav-link--active" href="index.html#inicio" data-nav>Inicio</a></li>
-          <li><a class="nav-link" href="sobrenosotros.html" data-nav>Sobre nosotros</a></li>
-          <li><a class="nav-link" href="servicios.html" data-nav>Servicios</a></li>
-          <li><a class="nav-link" href="procesodereparacion.html" data-nav>Proceso de reparación</a></li>
-          <li><a class="nav-link" href="index.html#testimonios" data-nav>Testimonios</a></li>
-          <li><a class="nav-link" href="/contacto.html" data-nav>Contactos</a></li>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <ul class="footer-links">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="sobrenosotros.html">Sobre nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="procesodereparacion.html">Proceso de reparación</a></li>
+          <li><a href="testimonios.html">Testimonios</a></li>
+          <li><a href="contacto.html">Contactos</a></li>
+          <li><a href="index (1).html" target="_blank">🤖 Soporte IA</a></li>
         </ul>
-        </nav>
+      </nav>
       <p class="footer-copy">© 2026 MUSIC LAND. Todos los derechos reservados.</p>
     </div>
   </footer>
@@ -353,28 +390,22 @@
         var prev = idx;
         idx = ((i % slides.length) + slides.length) % slides.length;
 
-        /* Preparar slide entrante fuera del viewport (sin transición) */
         slides[idx].classList.add('is-entering');
         slides[idx].classList.remove('is-active');
 
-        /* Forzar reflow para que el estado inicial se pinte antes de animar */
         void slides[idx].offsetWidth;
 
-        /* Quitar is-entering (activa la transición CSS) y añadir is-active */
         slides[idx].classList.remove('is-entering');
         slides[idx].classList.add('is-active');
         slides[idx].setAttribute('aria-hidden', 'false');
 
-        /* Ocultar slide anterior */
         if (prev !== idx) {
           slides[prev].classList.remove('is-active');
           slides[prev].setAttribute('aria-hidden', 'true');
         }
 
-        /* Actualizar dots — quitar y volver a poner is-active para reiniciar la animación */
         dots.forEach(function (dot, j) {
           var on = j === idx;
-          /* Truco para reiniciar la animación CSS del dot */
           dot.classList.remove('is-active');
           void dot.offsetWidth;
           if (on) {
@@ -385,7 +416,6 @@
           }
         });
 
-        /* Reiniciar barra de progreso del viewport */
         var vp = root.querySelector('.hero-carousel__viewport');
         if (vp) {
           vp.style.animation = 'none';
@@ -395,7 +425,6 @@
 
         updateCounter(idx);
 
-        /* Desbloquear tras la transición */
         setTimeout(function () { transitioning = false; }, 900);
       }
 
@@ -415,13 +444,11 @@
         });
       });
 
-      /* Pausar en hover/focus */
       root.addEventListener('mouseenter', function () { clearInterval(timer); });
       root.addEventListener('mouseleave', startTimer);
       root.addEventListener('focusin',    function () { clearInterval(timer); });
       root.addEventListener('focusout',   startTimer);
 
-      /* Swipe táctil */
       var touchStartX = 0;
       root.addEventListener('touchstart', function (e) {
         touchStartX = e.changedTouches[0].clientX;
@@ -434,16 +461,19 @@
         }
       }, { passive: true });
 
-      /* Teclado */
       root.addEventListener('keydown', function (e) {
         if (e.key === 'ArrowRight') { show(idx + 1); startTimer(); }
         if (e.key === 'ArrowLeft')  { show(idx - 1); startTimer(); }
       });
 
-      /* Arranque */
       show(0);
       startTimer();
     })();
+
+    // Botón flotante: abre el chatbot en nueva pestaña
+    document.getElementById('openChatBtn').addEventListener('click', function() {
+      window.open('index (1).html', '_blank');
+    });
   </script>
 </body>
 </html>
