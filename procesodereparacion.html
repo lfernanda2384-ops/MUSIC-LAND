@@ -156,6 +156,38 @@
       </div>
     </section>
   </main>
+    <!-- Música de ambiente -->
+  <div class="music-dock" id="music-dock">
+    <audio id="bg-audio" preload="metadata" loop playsinline>
+      <source src="https://assets.mixkit.co/music/522/522.mp3" type="audio/mpeg" />
+    </audio>
+    <div class="music-dock__panel">
+      <button type="button" class="music-dock__toggle" id="music-toggle" aria-pressed="false" aria-label="Activar música de ambiente">
+        <span class="music-dock__eq" aria-hidden="true">
+          <span class="music-dock__eq-bar"></span>
+          <span class="music-dock__eq-bar"></span>
+          <span class="music-dock__eq-bar"></span>
+        </span>
+        <svg class="music-dock__icon music-dock__icon--play" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M8 5v14l11-7L8 5z" fill="currentColor" />
+        </svg>
+        <svg class="music-dock__icon music-dock__icon--pause" width="22" height="22" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M6 5h4v14H6V5zm8 0h4v14h-4V5z" fill="currentColor" />
+        </svg>
+        <span class="music-dock__text">
+          <span class="music-dock__title">Ambiente</span>
+          <span class="music-dock__sub">Música de fondo</span>
+        </span>
+      </button>
+      <div class="music-dock__vol-wrap">
+        <label class="visually-hidden" for="music-vol">Volumen</label>
+        <input type="range" id="music-vol" class="music-dock__range" min="0" max="1" step="0.05" value="0.28" aria-label="Volumen de la música de fondo" />
+      </div>
+    </div>
+    <p class="music-dock__credit">
+      Audio: <a href="https://mixkit.co/free-stock-music/" target="_blank" rel="noopener noreferrer">Mixkit</a>
+    </p>
+  </div>
     <footer class="site-footer" id="pie">
     <div class="footer-inner">
       <div class="footer-brand">
@@ -190,6 +222,35 @@
         row.classList.add('is-open');
       }
     }
+  </script>
+   <script>
+    (function () {
+      var audio = document.getElementById('bg-audio');
+      var dock = document.getElementById('music-dock');
+      var btn = document.getElementById('music-toggle');
+      var vol = document.getElementById('music-vol');
+      if (!audio || !dock || !btn) return;
+
+      function setPlaying(on) {
+        dock.classList.toggle('music-dock--playing', on);
+        btn.setAttribute('aria-pressed', on ? 'true' : 'false');
+        btn.setAttribute('aria-label', on ? 'Pausar música de ambiente' : 'Activar música de ambiente');
+      }
+
+      audio.volume = vol ? parseFloat(vol.value) || 0.28 : 0.28;
+
+      btn.addEventListener('click', function () {
+        if (audio.paused) {
+          audio.play().then(function () { setPlaying(true); }).catch(function () { setPlaying(false); });
+        } else {
+          audio.pause(); setPlaying(false);
+        }
+      });
+
+      if (vol) { vol.addEventListener('input', function () { audio.volume = parseFloat(vol.value); }); }
+      audio.addEventListener('play',  function () { setPlaying(true);  });
+      audio.addEventListener('pause', function () { setPlaying(false); });
+    })();
   </script>
 </body>
 </html>
