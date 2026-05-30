@@ -80,9 +80,11 @@ body{
 }
 
 .ct-gradient{
-  background:linear-gradient(90deg,#7c3aed,#06b6d4);
-  --webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+  background: linear-gradient(90deg, #7c3aed, #06b6d4);
+  color: white;
+  padding: 0.1em 0.3em;
+  border-radius: 12px;
+  display: inline-block;
 }
 
 .ct-lead{
