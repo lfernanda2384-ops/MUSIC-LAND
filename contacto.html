@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Contacto MUSIC LAND - Agenda tu reparación y habla con nuestro asistente inteligente." />
+  <title>MUSIC LAND | Contacto</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/contacto.css" />
+</head>
+
+<body class="page-contacto">
+
+<header class="site-header">
+  <div class="header-inner">
+
+    <a class="logo" href="index.html">
+      <span class="logo-mark"></span>
+      <span class="logo-text">MUSIC<span class="logo-accent">LAND</span></span>
+    </a>
+
+
+      <nav class="nav" id="nav-primary" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a class="nav-link nav-link--active" href="index.html.html" data-nav>Inicio</a></li>
+          <li><a class="nav-link" href="sobrenosotros.html" data-nav>Sobre nosotros</a></li>
+          <li><a class="nav-link" href="servicios.html" data-nav>Servicios</a></li>
+          <li><a class="nav-link" href="procesodereparacion.html" data-nav>Proceso de reparación</a></li>
+          <li><a class="nav-link" href="testimonios.html" data-nav>Testimonios</a></li>
+          <li><a class="nav-link" href="contacto.html" data-nav>Contactos</a></li>
+        </ul>
+      </nav>
+
+  </div>
+</header>
+
+<main>
+
+  <!-- HERO -->
+  <section class="ct-hero">
+
+    <div class="ct-hero__bg">
+      <div class="ct-orb ct-orb--1"></div>
+      <div class="ct-orb ct-orb--2"></div>
+      <div class="ct-grid"></div>
+    </div>
+
+    <div class="ct-hero__inner">
+
+      <span class="ct-tag">Atención Inteligente · Soporte Técnico</span>
+
+      <h1 class="ct-title">
+        Conecta con <span class="ct-gradient">MUSIC LAND</span>
+      </h1>
+
+      <p class="ct-lead">
+        Agenda reparaciones, resuelve dudas y habla con nuestro asistente inteligente especializado en instrumentos electrónicos y equipos DJ.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="ct-section">
+
+    <div class="ct-container">
+
+<!-- =========================================================
+     CHATBOT PRINCIPAL · MUSIC LAND AI
+========================================================= -->
+
+<section class="ml-ai-system">
+
+  <!-- EFECTOS -->
+  <div class="ml-ai-glow ml-ai-glow--one"></div>
+  <div class="ml-ai-glow ml-ai-glow--two"></div>
+
+  <div class="ml-ai-container">
+
+    <!-- HEADER -->
+    <div class="ml-ai-header">
+
+      <div class="ml-ai-avatar">
+
+        🤖
+
+      </div>
+
+      <div class="ml-ai-title">
+
+        <span>MUSIC LAND · AI SYSTEM</span>
+
+        <h2>
+          Centro inteligente de soporte técnico
+        </h2>
+
+      </div>
+
+    </div>
+
+    <!-- CHAT -->
+    <div class="ml-ai-chat" id="chatBody">
+
+      <!-- MENSAJE INICIAL -->
+      <div class="ml-message ml-message--bot">
+
+        👋 Bienvenido a MUSIC LAND.
+
+        <br><br>
+
+        Este sistema inteligente te permitirá:
+
+        <br><br>
+
+        ✅ Solicitar servicios  
+        ✅ Generar código único de seguimiento  
+        ✅ Consultar estado del instrumento  
+        ✅ Ver costo de reparación  
+        ✅ Ver fecha de entrega  
+        ✅ Consultar garantía  
+        ✅ Ver técnico encargado
+
+        <br><br>
+
+        Para comenzar escribe:
+
+        <br><br>
+
+        🔧 REPARACIÓN  
+        🛠️ MANTENIMIENTO  
+        📋 DIAGNÓSTICO
+
+      </div>
+
+    </div>
+
+    <!-- INPUT -->
+    <div class="ml-ai-footer">
+
+      <input
+        type="text"
+        id="userInput"
+        placeholder="Escribe tu solicitud..."
+        autocomplete="off"
+      >
+
+      <button id="sendBtn">
+
+        Enviar
+
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
+
+<!-- =========================================================
+     SCRIPT IA MUSIC LAND
+========================================================= -->
+
+<script>
+
+const chatBody = document.getElementById("chatBody");
+const input = document.getElementById("userInput");
+const sendBtn = document.getElementById("sendBtn");
+
+/* =====================================================
+   BASE DE DATOS SIMULADA
+===================================================== */
+
+const serviceDB = {};
+
+/* =====================================================
+   GENERAR CODIGO UNICO
+===================================================== */
+
+function generateCode(){
+
+  return Math.floor(100 + Math.random() * 900);
+
+}
+
+/* =====================================================
+   CREAR MENSAJES
+===================================================== */
+
+function createMessage(text, type){
+
+  const div = document.createElement("div");
+
+  div.className = `ml-message ml-message--${type}`;
+
+  div.innerHTML = text;
+
+  chatBody.appendChild(div);
+
+  chatBody.scrollTop = chatBody.scrollHeight;
+
+}
+
+/* =====================================================
+   CREAR SERVICIO
+===================================================== */
+
+function createService(serviceType){
+
+  const code = generateCode();
+
+  serviceDB[code] = {
+
+    codigo: code,
+
+    nombre: "Juan David Ramírez",
+
+    cedula: "1143876542",
+
+    telefono: "3157824512",
+
+    instrumento:
+      serviceType === "reparacion"
+      ? "Controladora Pioneer DDJ-400"
+
+      : serviceType === "mantenimiento"
+      ? "Teclado Yamaha PSR"
+
+      : "Guitarra Fender Stratocaster",
+
+    servicio:
+      serviceType === "reparacion"
+      ? "Reparación electrónica"
+
+      : serviceType === "mantenimiento"
+      ? "Mantenimiento preventivo"
+
+      : "Diagnóstico técnico",
+
+    precio:
+      serviceType === "diagnostico"
+      ? "$80.000 COP"
+
+      : "$220.000 COP",
+
+    entrega:
+      serviceType === "diagnostico"
+      ? "24 horas"
+
+      : "72 horas",
+
+    estado:
+      serviceType === "reparacion"
+      ? "En reparación"
+
+      : serviceType === "mantenimiento"
+      ? "En mantenimiento"
+
+      : "En diagnóstico",
+
+    tecnico: "Carlos Hernández",
+
+    garantia: "45 días",
+
+    observacion:
+      "El equipo presenta fallas menores en la tarjeta principal y requiere calibración especializada."
+
+  };
+
+  return `
+
+    ✅ SERVICIO REGISTRADO EXITOSAMENTE
+
+    <br><br>
+
+    🎫 Código único asignado:
+
+    <br><br>
+
+    <div style="
+      font-size:3rem;
+      font-weight:800;
+      color:#06b6d4;
+      text-align:center;
+      letter-spacing:.15em;
+    ">
+
+      ${code}
+
+    </div>
+
+    <br>
+
+    ⚠️ Guarda este código para consultar tu servicio.
+
+    <br><br>
+
+    Ahora puedes escribir:
+
+    <br><br>
+
+    • ${code}  
+    • estado ${code}  
+    • precio ${code}  
+    • entrega ${code}  
+    • garantia ${code}  
+    • tecnico ${code}  
+    • observacion ${code}
+
+    <br><br>
+
+    para recibir toda la información automáticamente.
+
+  `;
+
+}
+
+/* =====================================================
+   IA PRINCIPAL
+===================================================== */
+
+function aiResponse(message){
+
+  const text = message.toLowerCase();
+
+  /* ======================================
+     SOLICITAR SERVICIO
+  ====================================== */
+
+  if(text.includes("reparacion")){
+
+    return createService("reparacion");
+
+  }
+
+  if(text.includes("mantenimiento")){
+
+    return createService("mantenimiento");
+
+  }
+
+  if(text.includes("diagnostico")){
+
+    return createService("diagnostico");
+
+  }
+
+  /* ======================================
+     CONSULTAR CODIGO
+  ====================================== */
+
+  const codeMatch = text.match(/\b\d{3}\b/);
+
+  if(codeMatch){
+
+    const code = codeMatch[0];
+
+    const data = serviceDB[code];
+
+    if(!data){
+
+      return `
+        ❌ No encontramos ningún servicio con ese código.
+      `;
+
+    }
+
+    /* ESTADO */
+
+    if(text.includes("estado")){
+
+      return `
+
+        ⚙️ ESTADO ACTUAL
+
+        <br><br>
+
+        ${data.estado}
+
+      `;
+
+    }
+
+    /* PRECIO */
+
+    if(text.includes("precio")){
+
+      return `
+
+        💰 VALOR DEL SERVICIO
+
+        <br><br>
+
+        ${data.precio}
+
+      `;
+
+    }
+
+    /* ENTREGA */
+
+    if(text.includes("entrega")){
+
+      return `
+
+        📦 FECHA ESTIMADA
+
+        <br><br>
+
+        ${data.entrega}
+
+      `;
+
+    }
+
+    /* TECNICO */
+
+    if(text.includes("tecnico")){
+
+      return `
+
+        👨‍🔧 TÉCNICO ENCARGADO
+
+        <br><br>
+
+        ${data.tecnico}
+
+      `;
+
+    }
+
+    /* GARANTIA */
+
+    if(text.includes("garantia")){
+
+      return `
+
+        🛡️ GARANTÍA
+
+        <br><br>
+
+        ${data.garantia}
+
+      `;
+
+    }
+
+    /* OBSERVACION */
+
+    if(text.includes("observacion")){
+
+      return `
+
+        📋 OBSERVACIÓN TÉCNICA
+
+        <br><br>
+
+        ${data.observacion}
+
+      `;
+
+    }
+
+    /* INFORMACION COMPLETA */
+
+    return `
+
+      ✅ INFORMACIÓN COMPLETA DEL SERVICIO
+
+      <br><br>
+
+      👤 Cliente:
+      <strong>${data.nombre}</strong>
+
+      <br><br>
+
+      🪪 Cédula:
+      <strong>${data.cedula}</strong>
+
+      <br><br>
+
+      📞 Teléfono:
+      <strong>${data.telefono}</strong>
+
+      <br><br>
+
+      🎹 Instrumento:
+      <strong>${data.instrumento}</strong>
+
+      <br><br>
+
+      🔧 Servicio:
+      <strong>${data.servicio}</strong>
+
+      <br><br>
+
+      💰 Precio:
+      <strong>${data.precio}</strong>
+
+      <br><br>
+
+      📦 Entrega:
+      <strong>${data.entrega}</strong>
+
+      <br><br>
+
+      ⚙️ Estado:
+      <strong>${data.estado}</strong>
+
+      <br><br>
+
+      👨‍🔧 Técnico:
+      <strong>${data.tecnico}</strong>
+
+      <br><br>
+
+      🛡️ Garantía:
+      <strong>${data.garantia}</strong>
+
+      <br><br>
+
+      📋 Observación:
+      <strong>${data.observacion}</strong>
+
+    `;
+
+  }
+
+  /* ======================================
+     RESPUESTAS GENERALES
+  ====================================== */
+
+  if(text.includes("hola")){
+
+    return `
+      👋 Hola. Bienvenido a MUSIC LAND AI.
+      <br><br>
+      ¿Deseas reparación, mantenimiento o diagnóstico?
+    `;
+
+  }
+
+  if(text.includes("ubicacion")){
+
+    return `
+      📍 MUSIC LAND se encuentra ubicado en Cali, Colombia.
+    `;
+
+  }
+
+  if(text.includes("horario")){
+
+    return `
+      🕒 Lunes a sábado · 8:00 AM a 6:00 PM
+    `;
+
+  }
+
+  return `
+
+    🤖 MUSIC LAND AI no logró identificar correctamente tu solicitud.
+
+    <br><br>
+
+    Por favor escribe:
+
+    <br><br>
+
+    🔧 REPARACIÓN  
+    🛠️ MANTENIMIENTO  
+    📋 DIAGNÓSTICO
+
+    <br><br>
+
+    para comenzar automáticamente tu proceso.
+
+  `;
+
+}
+
+/* =====================================================
+   ENVIAR MENSAJE
+===================================================== */
+
+function sendMessage(){
+
+  const text = input.value.trim();
+
+  if(text === "") return;
+
+  createMessage(text, "user");
+
+  input.value = "";
+
+  setTimeout(() => {
+
+    const response = aiResponse(text);
+
+    createMessage(response, "bot");
+
+  }, 500);
+
+}
+
+/* =====================================================
+   EVENTOS
+===================================================== */
+
+sendBtn.addEventListener("click", sendMessage);
+
+input.addEventListener("keypress", function(e){
+
+  if(e.key === "Enter"){
+
+    sendMessage();
+
+  }
+
+});
+
+</script>
+
+      <!-- FORMULARIO -->
+      <div class="contact-card">
+
+        <div class="contact-card__top">
+          <span class="contact-tag">Solicitar servicio</span>
+          <h2>Agenda tu reparación</h2>
+          <p>Déjanos tus datos y nuestro equipo se pondrá en contacto contigo.</p>
+        </div>
+
+        <form class="contact-form">
+
+          <div class="form-group">
+            <label>Nombre completo</label>
+            <input type="text" placeholder="Tu nombre" required />
+          </div>
+
+          <div class="form-group">
+            <label>Correo electrónico</label>
+            <input type="email" placeholder="correo@email.com" required />
+          </div>
+
+          <div class="form-group">
+            <label>Teléfono</label>
+            <input type="tel" placeholder="+57 300 000 0000" required />
+          </div>
+
+          <div class="form-group">
+            <label>Equipo o instrumento</label>
+            <input type="text" placeholder="Ej: Controladora DJ Pioneer" />
+          </div>
+
+          <div class="form-group">
+            <label>Describe el problema</label>
+            <textarea rows="5" placeholder="Describe la falla del equipo..."></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">
+            Solicitar diagnóstico
+          </button>
+
+        </form>
+
+        <!-- INFO -->
+        <div class="contact-info">
+
+          <div class="info-box">
+            <h3>📍 Dirección</h3>
+            <p>Cali, Colombia</p>
+          </div>
+
+          <div class="info-box">
+            <h3>📞 Teléfono</h3>
+            <p>+57 300 000 0000</p>
+          </div>
+
+          <div class="info-box">
+            <h3>✉ Correo</h3>
+            <p>musicland@email.com</p>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+</main>
+
+  <h1>para entrar al chat IA: ingresa aqui</h1>
+  <a href="index (1).html">CHAT IA/MUSIC LAND/OFICIAL</a>
+
+<footer class="site-footer">
+
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <a class="footer-logo" href="index.html">
+        MUSIC<span>LAND</span>
+      </a>
+
+      <p class="footer-tagline">
+        Mantenimiento y reparación de instrumentos electrónicos.
+      </p>
+    </div>
+
+    <p class="footer-copy">
+      © 2026 MUSIC LAND. Todos los derechos reservados.
+    </p>
+
+  </div>
+
+
+</footer>
+
+<script>
+
+const responses = {
+
+  "hola": "¡Hola! 👋 Bienvenido a MUSIC LAND. ¿Cómo puedo ayudarte?",
+
+  "servicio": "Puedes solicitar un servicio llenando el formulario de esta página. Nuestro equipo te responderá rápidamente.",
+
+  "reparan": "Reparamos controladoras DJ, guitarras eléctricas, sintetizadores, amplificadores, mixers y equipos de estudio.",
+
+  "garantia": "Sí. Todas nuestras reparaciones incluyen garantía certificada.",
+
+  "tiempo": "El tiempo depende del diagnóstico, pero normalmente toma entre 24 y 72 horas.",
+
+  "contacto": "Puedes contactarnos mediante el formulario, teléfono o correo electrónico.",
+
+  "precio": "El costo depende del daño y del equipo. Primero realizamos un diagnóstico técnico.",
+
+  "default": "Entiendo 👍 Nuestro equipo técnico puede ayudarte con eso. También puedes llenar el formulario para recibir atención personalizada."
+
+};
+
+function sendMessage() {
+
+  const input = document.getElementById("userInput");
+  const chatBody = document.getElementById("chatBody");
+
+  const userText = input.value.trim();
+
+  if(userText === "") return;
+
+  // USER MESSAGE
+  const userMessage = document.createElement("div");
+  userMessage.className = "message user";
+  userMessage.innerHTML = userText;
+
+  chatBody.appendChild(userMessage);
+
+  let botReply = responses.default;
+
+  const lowerText = userText.toLowerCase();
+
+  for (const key in responses) {
+
+    if(lowerText.includes(key)) {
+      botReply = responses[key];
+      break;
+    }
+
+  }
+
+  setTimeout(() => {
+
+    const botMessage = document.createElement("div");
+    botMessage.className = "message bot";
+    botMessage.innerHTML = botReply;
+
+    chatBody.appendChild(botMessage);
+
+    chatBody.scrollTop = chatBody.scrollHeight;
+
+  }, 600);
+
+  input.value = "";
+
+}
+
+</script>
+
+
+</body>
+</html>

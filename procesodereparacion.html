@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Proceso de reparación detallado en MUSIC LAND: excelencia técnica para tus instrumentos." />
+  <title>MUSIC LAND | Proceso de Reparación</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Syne:wght@600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+  <link rel="stylesheet" href="css/procesodereparacion.css" />
+</head>
+<body class="page-proceso">
+  <header class="site-header" id="top">
+    <div class="header-inner">
+      <a class="logo" href="index.html">
+        <span class="logo-mark"></span>
+        <span class="logo-text">MUSIC<span class="logo-accent">LAND</span></span>
+      </a>
+
+      <nav class="nav" id="nav-primary" aria-label="Navegación principal">
+        <ul class="nav-list">
+          <li><a class="nav-link nav-link--active" href="index.html.html" data-nav>Inicio</a></li>
+          <li><a class="nav-link" href="sobrenosotros.html" data-nav>Sobre nosotros</a></li>
+          <li><a class="nav-link" href="servicios.html" data-nav>Servicios</a></li>
+          <li><a class="nav-link" href="procesodereparacion.html" data-nav>Proceso de reparación</a></li>
+          <li><a class="nav-link" href="testimonios.html" data-nav>Testimonios</a></li>
+          <li><a class="nav-link" href="contacto.html" data-nav>Contactos</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="pr-hero">
+      <div class="pr-hero__inner">
+        <span class="pr-tag">Metodología de Taller</span>
+        <h1 class="pr-title">Protocolos de <span class="pr-gradient">Reparación de Élite</span></h1>
+        <p class="pr-lead">Haz clic en un instrumento para conocer su definición, proceso técnico y estándares de calidad.</p>
+      </div>
+    </section>
+
+    <section class="pr-section">
+      <div class="pr-table-container">
+        <div class="pr-table">
+          <div class="pr-table__header">
+            <div class="pr-col">Instrumento</div>
+            <div class="pr-col">Especialidad</div>
+            <div class="pr-col">Garantía</div>
+          </div>
+
+          <div class="pr-row" onclick="toggleDetails('violin')">
+            <div class="pr-row__main">
+              <div class="pr-col"><strong>Violín Eléctrico</strong></div>
+              <div class="pr-col">Captación Piezoeléctrica</div>
+              <div class="pr-col"><span class="status-tag">Certificada</span></div>
+            </div>
+            <div class="pr-row__details" id="details-violin">
+              <div class="details-content">
+                <p class="inst-def"><strong>Definición:</strong> Instrumento de cuerda que utiliza una salida electrónica para amplificar su sonido mediante pastillas piezoeléctricas, eliminando la caja de resonancia acústica tradicional.</p>
+                <h3>Proceso de Reparación</h3>
+                <ul>
+                  <li>Calibración del puente para asegurar contacto uniforme con los sensores.</li>
+                  <li>Revisión del preamplificador interno y blindaje contra ruidos electromagnéticos.</li>
+                  <li>Ajuste de la impedancia de salida para evitar distorsión en amplificadores.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="pr-row" onclick="toggleDetails('bateria')">
+            <div class="pr-row__main">
+              <div class="pr-col"><strong>Batería Eléctrica</strong></div>
+              <div class="pr-col">Sistemas de Triggering</div>
+              <div class="pr-col"><span class="status-tag">Certificada</span></div>
+            </div>
+            <div class="pr-row__details" id="details-bateria">
+              <div class="details-content">
+                <p class="inst-def"><strong>Definición:</strong> Conjunto de pads con sensores electrónicos que envían señales a un módulo (cerebro) para reproducir sonidos de percusión muestreados.</p>
+                <h3>Proceso de Reparación</h3>
+                <ul>
+                  <li>Sustitución y ajuste de sensibilidad de los sensores (triggers) de malla y goma.</li>
+                  <li>Reparación de puertos de entrada/salida en el módulo central.</li>
+                  <li>Actualización de mapas de velocidad para una respuesta dinámica real.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="pr-row" onclick="toggleDetails('theremin')">
+            <div class="pr-row__main">
+              <div class="pr-col"><strong>Theremin</strong></div>
+              <div class="pr-col">Campos Electromagnéticos</div>
+              <div class="pr-col"><span class="status-tag">Certificada</span></div>
+            </div>
+            <div class="pr-row__details" id="details-theremin">
+              <div class="details-content">
+                <p class="inst-def"><strong>Definición:</strong> Uno de los primeros instrumentos electrónicos, controlado sin contacto físico mediante la proximidad de las manos a dos antenas que regulan tono y volumen.</p>
+                <h3>Proceso de Reparación</h3>
+                <ul>
+                  <li>Calibración de osciladores de alta frecuencia (heterodinos).</li>
+                  <li>Ajuste de la linealidad de las antenas para una respuesta de tono precisa.</li>
+                  <li>Revisión de componentes de vacío o circuitos analógicos de estado sólido.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="pr-row" onclick="toggleDetails('ondas')">
+            <div class="pr-row__main">
+              <div class="pr-col"><strong>Ondas Martenot</strong></div>
+              <div class="pr-col">Síntesis Monofónica Clásica</div>
+              <div class="pr-col"><span class="status-tag">Certificada</span></div>
+            </div>
+            <div class="pr-row__details" id="details-ondas">
+              <div class="details-content">
+                <p class="inst-def"><strong>Definición:</strong> Instrumento electrónico monofónico que utiliza un anillo deslizante y un teclado para generar sonidos etéreos, muy utilizado en música de vanguardia y cine.</p>
+                <h3>Proceso de Reparación</h3>
+                <ul>
+                  <li>Mantenimiento del hilo conductor y el mecanismo del anillo deslizante (ruban).</li>
+                  <li>Restauración de la "touche d'intensité" para el control dinámico sensible.</li>
+                  <li>Alineación de filtros y difusores (altavoces especiales como la palme).</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="pr-row" onclick="toggleDetails('saxo')">
+            <div class="pr-row__main">
+              <div class="pr-col"><strong>Saxofón Eléctrico (EWI)</strong></div>
+              <div class="pr-col">Controladores de Viento MIDI</div>
+              <div class="pr-col"><span class="status-tag">Certificada</span></div>
+            </div>
+            <div class="pr-row__details" id="details-saxo">
+              <div class="details-content">
+                <p class="inst-def"><strong>Definición:</strong> Instrumento de viento electrónico que traduce el flujo de aire y el digitado en datos MIDI o sonidos sintetizados internamente.</p>
+                <h3>Proceso de Reparación</h3>
+                <ul>
+                  <li>Limpieza y recalibración del sensor de presión de aire (breath sensor).</li>
+                  <li>Reparación de llaves táctiles capacitivas para evitar falsos disparos.</li>
+                  <li>Mantenimiento del puerto de drenaje de humedad para proteger la electrónica interna.</li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="pr-guarantee">
+      <div class="pr-card-guarantee">
+        <h2>Excelencia en la Entrega</h2>
+        <p>Garantizamos resultados óptimos mediante el uso de repuestos originales y pruebas de laboratorio. Cada instrumento es sometido a un test de 48 horas tras su reparación para certificar su estabilidad total antes de la entrega final.</p>
+      </div>
+    </section>
+  </main>
+    <footer class="site-footer" id="pie">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <a class="footer-logo" href="index.html#inicio">MUSIC<span>LAND</span></a>
+        <p class="footer-tagline">Mantenimiento y reparación de instrumentos electrónicos.</p>
+      </div>
+      <nav class="footer-nav" aria-label="Pie de página">
+        <ul class="footer-links">
+          <li><a href="index.html#inicio">Inicio</a></li>
+          <li><a href="sobrenosotros.html">Sobre nosotros</a></li>
+          <li><a href="servicios.html">Servicios</a></li>
+          <li><a href="index.html#proceso">Proceso de reparación</a></li>
+          <li><a href="index.html#testimonios">Testimonios</a></li>
+          <li><a href="contacto.html">Contactos</a></li>
+        </ul>
+      </nav>
+      <p class="footer-copy">© 2026 MUSIC LAND. Todos los derechos reservados.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleDetails(id) {
+      const details = document.getElementById('details-' + id);
+      const row = details.parentElement;
+      const isOpen = details.classList.contains('is-active');
+
+      document.querySelectorAll('.pr-row__details').forEach(d => d.classList.remove('is-active'));
+      document.querySelectorAll('.pr-row').forEach(r => r.classList.remove('is-open'));
+
+      if (!isOpen) {
+        details.classList.add('is-active');
+        row.classList.add('is-open');
+      }
+    }
+  </script>
+</body>
+</html>
